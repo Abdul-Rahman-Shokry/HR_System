@@ -1,0 +1,36 @@
+{% extends 'base.html'%}
+{% block title%}
+    <title>branch {{branch.name}}</title>
+{%endblock%}
+{% block breadcrumb%}
+    <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'branches' %}">branches</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{branch.name}}</li>
+{%endblock%}
+{% block content%}
+        <div style="background-color: rgb(235, 230, 230);border: 10px solid rgb(235, 230, 230);border-radius: 10px;">
+            <dl class="row ml-4">
+                <dt class="col-sm-3">Name:</dt>
+                <dd class="col-sm-9">{{branch.name}} <br/> <p class="text-muted">{{branch.address}}</p></dd>
+                <dt class="col-sm-3">Phone:</dt>
+                <dd class="col-sm-9">{{branch.phone}}</dd>
+                <dt class="col-sm-3">Email:</dt>
+                <dd class="col-sm-9">{{branch.email}}</dd>
+            </dl>
+        </div>
+        <br/>
+        <h2>Departments</h2>
+        <table class="table ">
+            <thead class="thead-dark">
+                <th>name</th>
+                <th>description</th>
+            </thead>
+            <tbody>
+                {% for department in dparments %}
+                <tr>
+                    <td>{{department.name}}</td>
+                    <td>{{department.description}}</td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+{%endblock%}

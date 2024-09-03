@@ -14,7 +14,7 @@ class Branch(models.Model):
 class Department(models.Model):
     name = models.CharField(max_length=50)
     description = models.TextField(max_length=200, help_text="write a description about the department")
-    branch = models.ForeignKey('Branch', related_name="branch", on_delete=models.CASCADE)
+    branch = models.ForeignKey('Branch', related_name="departmentsBranch", on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
