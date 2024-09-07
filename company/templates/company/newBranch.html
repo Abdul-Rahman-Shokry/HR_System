@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>New Branch</title>
+{% endblock title %}
+
+{% block breadcrumb %}
+<li class="breadcrumb-item active" aria-current="page"><a href="{% url 'branches' %}">Branches</a></li>
+<li class="breadcrumb-item active" aria-current="page">New Branch</li>
+{% endblock breadcrumb %}
+
+{% block content %}
+
+<!-- Display messages for success or error -->
+{% if messages %}
+    <div class="alert">
+        {% for message in messages %}
+            <div class="alert {% if message.tags == 'error' %}alert-danger{% else %}alert-success{% endif %}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label class="form-label">Branch Name</label>
+        <input type="text" class="form-control" placeholder="Enter branch name" name="branchName" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Branch Address</label>
+        <input type="text" class="form-control" placeholder="Enter branch address" name="branchAddress" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Branch Phone</label>
+        <input type="text" class="form-control" placeholder="Enter branch phone" name="branchPhone" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Branch Email address</label>
+        <input type="email" class="form-control" placeholder="Enter branch email" name="branchEmail" aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <input type="submit" value="Add a branch" class="btn btn-success"/>
+</form>
+{% endblock content %}

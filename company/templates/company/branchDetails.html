@@ -18,19 +18,22 @@
             </dl>
         </div>
         <br/>
+        <a href="#" class="btn btn-outline-primary">Edit branch</a>
+        <br/><br/>
         <h2>Departments</h2>
         <table class="table ">
-            <thead class="thead-dark">
+            <thead class="table-dark">
                 <th>name</th>
                 <th>description</th>
             </thead>
             <tbody>
-                {% for department in dparments %}
-                <tr>
-                    <td>{{department.name}}</td>
-                    <td>{{department.description}}</td>
-                </tr>
+                {% for department in departments %}
+                    <tr>
+                        <td>{{department.name}}</td>
+                        <td>{{department.description}}</td>
+                    </tr>
                 {%endfor%}
             </tbody>
         </table>
+        <a href="#" class="btn btn-primary">Add departments to branch</a>
 {%endblock%}

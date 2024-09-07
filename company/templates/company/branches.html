@@ -7,22 +7,22 @@
 {%endblock%}
 {% block content%}
     <table class="table table-hover">
-        <thead class="thead-dark">
-            <th>branche name</th>
-            <th>branche phone</th>
-            <th>branche mail</th>
-            <th>branche departments Count</th>
+        <thead class="table-dark">
+            <th>branch name</th>
+            <th>branch phone</th>
+            <th>branch mail</th>
+            <th>branch departments Count</th>
         </thead>
         <tbody>
-        {%for branche in branches %}
+        {%for branch in branches %}
             <tr>
-                <td><a href="{% url 'branchesDetails' branche.pk %}">{{branche.name}}</a><br/><small class="text-muted">{{branche.address}}</small></td>
-                <td>{%if branche.phone%}{{branche.phone}}{%endif%}</td>
-                <td>{%if branche.email%}{{branche.email}}{%endif%}</td>
+                <td><a href="{% url 'branchesDetails' branch.pk %}">{{branch.name}}</a><br/><small class="text-muted">{{branch.address}}</small></td>
+                <td>{%if branch.phone%}{{branch.phone}}{%endif%}</td>
+                <td>{%if branch.email%}{{branch.email}}{%endif%}</td>
                 <td>0</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-    <a href="#" class="btn btn-outline-primary">new branche</a>
+    <a href="{% url 'newBranch' %}" class="btn btn-outline-primary">new branche</a>
 {%endblock%}

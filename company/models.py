@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 # 1:13:29
 class Branch(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, unique=True)
     address = models.CharField(max_length=100, help_text="enter full address")
     phone = models.CharField(max_length=12, null = True)
     email = models.EmailField(max_length=50, null = True)
