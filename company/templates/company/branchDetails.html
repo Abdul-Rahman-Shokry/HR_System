@@ -18,7 +18,7 @@
             </dl>
         </div>
         <br/>
-        <a href="#" class="btn btn-outline-primary">Edit branch</a>
+        <a href="{% url 'editBranch' branch.id %}" class="btn btn-outline-primary">Edit branch</a>
         <br/><br/>
         <h2>Departments</h2>
         <table class="table ">
@@ -35,5 +35,5 @@
                 {%endfor%}
             </tbody>
         </table>
-        <a href="#" class="btn btn-primary">Add departments to branch</a>
+        <a href="#" class="btn btn-outline-primary">Edit Department</a>
 {%endblock%}

@@ -3,6 +3,8 @@ from django.db import IntegrityError
 from django.contrib import messages
 from django.http import HttpResponse
 from .models import Branch, Department
+from django.shortcuts import get_object_or_404 # ??
+
 
 
 # Create your views here.
@@ -40,4 +42,28 @@ def newBranch(request):
             messages.error(request, 'Branch name already exists. Please choose a different name.')
         
         return redirect('newBranch')  
-    return render(request, 'company/newBranch.html') 
+    return render(request, 'company/newBranch.html')
+
+
+def editBranch(request, branch_id):
+    branch = get_object_or_404(Branch, id=branch_id)
+    
+    if request.method == 'POST':
+        branch_name = request.POST.get('branchName')
+        branch_address = request.POST.get('branchAddress')
+        branch_phone = request.POST.get('branchPhone')
+        branch_email = request.POST.get('branchEmail')
+
+        try:
+            branch.name = branch_name
+            branch.address = branch_address
+            branch.phone = branch_phone
+            branch.email = branch_email
+            branch.save()
+            messages.success(request, 'Branch updated successfully!')
+            return redirect('branchesDetails', branch_id=branch_id)
+        except IntegrityError:
+            messages.error(request, 'Branch name already exists. Please choose a different name.')
+    
+    context = {'branch': branch}
+    return render(request, 'company/editBranch.html', context)
