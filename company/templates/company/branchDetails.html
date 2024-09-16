@@ -35,5 +35,5 @@
                 {%endfor%}
             </tbody>
         </table>
-        <a href="#" class="btn btn-outline-primary">Edit Department</a>
+        <a href="{% url 'newDepartmentToBranch' branch.pk %}" class="btn btn-outline-primary">Add Department to branch</a>
 {%endblock%}

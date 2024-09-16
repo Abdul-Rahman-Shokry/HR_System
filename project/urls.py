@@ -19,7 +19,6 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from company import views as CompanyViews
-from employee import views as EmployeeViews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,6 +26,7 @@ urlpatterns = [
     path('branch/<int:branch_id>',CompanyViews.branchDetails,name="branchesDetails"),
     path('new_branch', CompanyViews.newBranch, name="newBranch"),
     path('branch/<int:branch_id>/edit/', CompanyViews.editBranch, name="editBranch"),
+    path('branch/<int:branch_id>/newDepartment/', CompanyViews.newDepartmentToBranch, name="newDepartmentToBranch"),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

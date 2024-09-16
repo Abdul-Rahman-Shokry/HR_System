@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.http import HttpResponse
 from .models import Branch, Department
 from django.shortcuts import get_object_or_404 # ??
+from .forms import newDepartmentToBranchForm
 
 
 
@@ -67,3 +68,16 @@ def editBranch(request, branch_id):
     
     context = {'branch': branch}
     return render(request, 'company/editBranch.html', context)
+
+
+def newDepartmentToBranch(request,branch_id):
+    b = Branch.objects.get(pk=branch_id)
+    form = newDepartmentToBranchForm()
+    if request.method == 'POST':
+        form = newDepartmentToBranchForm(request.POST)
+        if form.is_valid():
+            department = form.save(commit=False)
+            department.branch_id = branch_id
+            department.save()
+            return render(request,'company/branchDetails.html',{'branch':b})
+    return render(request,'company/newDepartmentToBranch.html',{'form':form,'branch':b})

@@ -1,0 +1,16 @@
+{% extends 'base.html'%}
+{% load widget_tweaks %}
+{%block title%}
+<title>new branch</title>
+{%endblock%}
+{% block breadcrumb%}
+    <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'branches' %}">branches</a></li>
+    <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'branchesDetails' branch.id %}">{{branch.name}}</a></li>
+    <li class="breadcrumb-item active" aria-current="page">new department</li>
+{%endblock%}
+{% block content%}
+<form method="post" novalidate>
+    {% include 'include/form.html' %}
+    <input type="submit" class="btn btn-primary" value="add department">
+</form>
+{%endblock%}

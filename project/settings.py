@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'company',
     'employee',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
