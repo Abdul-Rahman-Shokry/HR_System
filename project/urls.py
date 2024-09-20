@@ -27,6 +27,7 @@ urlpatterns = [
     path('new_branch', CompanyViews.newBranch, name="newBranch"),
     path('branch/<int:branch_id>/edit/', CompanyViews.editBranch, name="editBranch"),
     path('branch/<int:branch_id>/newDepartment/', CompanyViews.newDepartmentToBranch, name="newDepartmentToBranch"),
+    path('',include('accounts.urls')),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
