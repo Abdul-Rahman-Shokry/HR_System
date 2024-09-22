@@ -1,0 +1,30 @@
+{% extends 'base.html'%}
+{% block title%}
+    <title>Employees</title>
+{%endblock%}
+{% block breadcrumb%}
+    <li class="breadcrumb-item active" aria-current="page">Employees</li>
+{%endblock%}
+{% block content%}
+    <table class="table table-hover">
+        <thead class="table-dark">
+            <th>Employee name</th>
+            <th>Employee age</th>
+            <th>Employee salary</th>
+            <th>Employee birth_date</th>
+            <th>Employee national_id</th>
+        </thead>
+        <tbody>
+        {% comment %} {%for employee in employees %} {% endcomment %}
+            <tr>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+            </tr>
+        {% comment %} {% endfor %} {% endcomment %}
+        </tbody>
+    </table>
+    <a href="{% url 'newEmployee' %}" class="btn btn-outline-primary">new employee</a>
+{%endblock%}

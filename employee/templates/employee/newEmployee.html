@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>New Employee</title>
+{% endblock title %}
+
+{% block breadcrumb %}
+<li class="breadcrumb-item active" aria-current="page"><a href="{% url 'employees' %}">Employees</a></li>
+<li class="breadcrumb-item active" aria-current="page">New Employee</li>
+{% endblock breadcrumb %}
+
+{% block content %}
+
+<!-- Display messages for success or error -->
+{% if messages %}
+    <div class="alert">
+        {% for message in messages %}
+            <div class="alert {% if message.tags == 'error' %}alert-danger{% else %}alert-success{% endif %}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label class="form-label">Employee Name</label>
+        <input type="text" class="form-control" placeholder="Enter Employee Name" name="employeeName" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Employee Age</label>
+        <input type="text" class="form-control" placeholder="Enter Employee Age" name="employeeAge" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Employee Salary</label>
+        <input type="text" class="form-control" placeholder="Enter Employee Salary" name="employeeSalary" aria-describedby="emailHelp">
+    </div>
+    {% comment %} <div class="mb-3">
+        <label class="form-label">Employee birth-date</label>
+        <input type="text" class="form-control" placeholder="Enter birth-date" name="employeeBirthDate" aria-describedby="emailHelp">
+    </div> {% endcomment %}
+    <div class="mb-3">
+        <label class="form-label">Employee national id</label>
+        <input type="text" class="form-control" placeholder="Enter national id" name="employeeNationalId" aria-describedby="emailHelp">
+    </div>
+    <input type="submit" value="add an employee" class="btn btn-success"/>
+</form>
+{% endblock content %}

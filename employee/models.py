@@ -6,7 +6,7 @@ class Employee(models.Model):
     age = models.IntegerField(max_length=2)
     salary = models.IntegerField(max_length=6)
     birth_date = models.DateField()
-    national_id = models.IntegerField()
+    # national_id = models.IntegerField()
     position_id = models.ForeignKey('Position',related_name='position_id', on_delete=models.CASCADE)
 
     def __str__(self):
